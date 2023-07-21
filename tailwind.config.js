@@ -9,7 +9,14 @@ module.exports = {
         babas:['Bebas Neue'],
         montserrat: ['Montserrat'],
         inter: ['Inter']
-      },
+    }
+  },
+    colors: {
+      'whiteColor': '#FFFFFF',
+      'gray700':'##344054',
+      'grayBorder': '#D0D5DD',
+      'primaryColor':'#329BFA',
+      'textColor':'#565656', 
     },
   },
   plugins: [],
