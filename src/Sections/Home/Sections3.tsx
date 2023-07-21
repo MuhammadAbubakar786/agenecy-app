@@ -10,7 +10,7 @@ const Sections3 = () => {
       <div className="mx-[5%] xl:mx-auto bg-[#F9FAFB] rounded-[16px] border border-[#EAECF0] max-w-[1216px]  my-5">
         <div className="flex items-center gap-[24px] pt-5 pr-5">
           <div className="pl-5">
-            <img src={require("../../assests/images/Logomark.svg").default} />
+            <img alt="" src={require("../../assests/images/Logomark.svg").default} />
           </div>
           <div className="flex gap-[24px]">
             <div>
@@ -42,7 +42,7 @@ const Sections3 = () => {
               </div>
             </div>
             <div className="mt-5">
-              <img src={require("../../assests/images/layer.png")} />
+              <img alt="" src={require("../../assests/images/layer.png")} />
             </div>
           </div>
         </div>
@@ -61,6 +61,7 @@ const Sections3 = () => {
             <div className="flex justify-center col-span-2 border-r border-[#EAECF0] px-2 py-2 h-[56px]">
               <p className="text-[14px] font-semibold font-montserrat flex justify-center items-center gap-1">
                 <img
+                alt=""
                   className="w-[16px] h-[16px]"
                   src={require("../../assests/images/location.svg").default}
                 />{" "}
@@ -73,7 +74,7 @@ const Sections3 = () => {
               </p>
             </div>
             <div className="flex items-center justify-center col-span-3 px-2 py-2 h-[56px]">
-              <RatingStars /> <span className="text-[16px] font-bold">4.9</span>
+              <RatingStars rating={3}/> <span className="text-[16px] font-bold">4.9</span>
             </div>
           </div>
         </div>
