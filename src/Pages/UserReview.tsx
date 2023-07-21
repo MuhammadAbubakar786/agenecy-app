@@ -1,6 +1,6 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react'
-import star from '../assets/Icons/star.svg'
-import fileUpload from '../assets/Icons/upload_to_cloud.svg'
+import star from '../assests/Icons/star.svg'
+import fileUpload from '../assests/Icons/upload_to_cloud.svg'
 import { Link } from 'react-router-dom';
 
 function UserReview() {
