@@ -1,9 +1,10 @@
 import React from 'react'
+import Sections3 from '../Sections/Home/Sections3'
 function AgenceyDetails() {
   return (
-    <div className='flex justify-center items-center h-screen bg-black'>
-        <h1 className='text-white'>Agency Page</h1>
-    </div>
+    <>
+        <Sections3/>
+    </>
   )
 }
 export default AgenceyDetails
