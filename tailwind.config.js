@@ -4,7 +4,13 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        babas:['Bebas Neue'],
+        montserrat: ['Montserrat'],
+        inter: ['Inter']
+      },
+    },
   },
   plugins: [],
 }

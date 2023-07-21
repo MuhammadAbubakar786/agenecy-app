@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @font-face {
-    font-family: "Montseorrat";
-    src: url("../assets/fonts/Montserrat-Regular.ttf") format("ttf");
-  } */
+@font-face {
+  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Inter', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  }

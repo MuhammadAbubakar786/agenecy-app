@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { FaStar as Star } from "react-icons/fa";
 
 const colors = {
-  orange: "#EBBC00",
-  grey: "#C9C9C9",
+  pink: "#FF59E9",
+  grey: "#F2F4F7",
 };
 
 const RatingStars = ({ rating }) => {
@@ -17,10 +17,10 @@ const RatingStars = ({ rating }) => {
       {stars.map((e, index) => {
         return (
           <Star
-          className="h-[10px] w-[10px] sm:h-[14px] sm:w-[14px] md:h-[16px] md:w-[16px] xmd:h-[13px] xmd:w-[13px]"
+          className="h-[20px] w-[20px]"
             key={index}
             size={18}
-            color={currentValue > index ? colors.orange : colors.grey}
+            color={currentValue > index ? colors.pink : colors.grey}
             style={{ 
               marginRight: 6,
               cursor: "pointer",
