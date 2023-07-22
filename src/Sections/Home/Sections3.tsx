@@ -1,12 +1,11 @@
 import React from "react";
 import RatingStars from "../../Components/RatingStars";
 import { FiUsers as Users } from "react-icons/fi";
-// import {FiLocation as Location} from "react-icons/fi"
+import {FiLocation as Location} from "react-icons/fi"
 
 const Sections3 = () => {
   return (
     <>
-      
       <div className="mx-[5%] xl:mx-auto bg-[#F9FAFB] rounded-[16px] border border-[#EAECF0] max-w-[1216px]  my-5">
         <div className="flex items-center gap-[24px] pt-5 pr-5">
           <div className="pl-5">

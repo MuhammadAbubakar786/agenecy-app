@@ -93,7 +93,7 @@ const Section2 = () => {
           </div>
         </div>
       </div>
-      <div className="border-t my-10 max-w-[1216px] border-[#EAECF0] mx-[5%] xl:mx-auto "></div>
+      {/* <div className="border-t my-10 max-w-[1216px] border-[#EAECF0] mx-[5%] xl:mx-auto "></div> */}
     </>
   );
 };
