@@ -7,12 +7,7 @@ function AgencyList() {
     <>
       <Section2 />
       <Sections3 />
-       <Sections3 />
-       <Sections3 />
-       <Sections3 />
-       <Sections3 />
-       <Sections3 />
-       <Sections3 />
+      
        <Pagination/>
     </>
   );
