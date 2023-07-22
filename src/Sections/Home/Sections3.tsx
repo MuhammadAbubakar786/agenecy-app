@@ -5,6 +5,11 @@ import RatingStars from "../../Components/RatingStars";
 // import {FiLocation as Location} from "react-icons/fi"
 
 const Sections3 = () => {
+  const data = [
+    {
+      agencyLogo:""
+    }
+  ]
   return (
     <>
       <Link to={"/AgencyDetails"}>
