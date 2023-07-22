@@ -4,7 +4,7 @@ import React from "react";
 const Pagination = () => {
   return (
     <>
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center mt-10">
       <nav aria-label="Page navigation example">
         <ul className="inline-flex -space-x-px text-base h-10">
           <li>

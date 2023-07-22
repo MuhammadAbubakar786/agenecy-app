@@ -3,6 +3,7 @@ import React from "react";
 const Section2 = () => {
   return (
     <>
+    
       <div className="flex items-center justify-between mx-[5%] xl:mx-auto  max-w-[1216px] mt-10">
         <div className="flex items-center gap-2">
           <div>
@@ -26,12 +27,12 @@ const Section2 = () => {
           <div className="flex items-center gap-[8px]">
                 <div className="flex justify-center bg-[#3364F7] items-center gap-[8px] px-2 py-1 h-[38px]  max-w-fit rounded-tl-xl rounded-bl-md rounded-tr-md rounded-br-xl">
                   <p className="text-[14px] uppercase font-bold text-[#FFF] italic flex items-center justify-between">
-                    Full service <span className="w-[14px] h-[14px] bg-white rounded-full flex items-center justify-center p-1 text-black ml-3"> <img src={require("../../assests/images/cross-black.svg").default}/> </span>
+                    Full service <span className="w-[14px] h-[14px] bg-[#FFF] rounded-full flex items-center justify-center p-1 text-black ml-3"> <img src={require("../../assets/images/cross-black.svg").default}/> </span>
                   </p>
                 </div>
                 <div className="flex justify-center bg-[#3364F7] items-center gap-[8px] px-2 py-1 h-[38px]  max-w-fit rounded-tl-xl rounded-bl-md rounded-tr-md rounded-br-xl">
                   <p className="text-[14px] uppercase font-bold text-[#FFF] italic flex items-center justify-between">
-                    Social ads <span className="w-[14px] h-[14px] bg-white rounded-full flex items-center justify-center p-1 text-black ml-3"> <img src={require("../../assests/images/cross-black.svg").default}/> </span>
+                    Social ads <span className="w-[14px] h-[14px] bg-[#FFF] rounded-full flex items-center justify-center p-1 text-black ml-3"> <img src={require("../../assets/images/cross-black.svg").default}/> </span>
                   </p>
                 </div>
               </div>

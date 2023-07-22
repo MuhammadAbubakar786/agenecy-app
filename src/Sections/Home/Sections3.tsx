@@ -1,16 +1,17 @@
 import React from "react";
-import RatingStars from "../../Components/RatingStars";
 import { FiUsers as Users } from "react-icons/fi";
+import { Link } from "react-router-dom";
+import RatingStars from "../../Components/RatingStars";
 // import {FiLocation as Location} from "react-icons/fi"
 
 const Sections3 = () => {
   return (
     <>
-      
+      <Link to={"/AgencyDetails"}>
       <div className="mx-[5%] xl:mx-auto bg-[#F9FAFB] rounded-[16px] border border-[#EAECF0] max-w-[1216px]  my-5">
         <div className="flex items-center gap-[24px] pt-5 pr-5">
           <div className="pl-5">
-            <img alt="" src={require("../../assests/images/Logomark.svg").default} />
+            <img alt="" src={require("../../assets/images/Logomark.svg").default} />
           </div>
           <div className="flex gap-[24px]">
             <div>
@@ -42,7 +43,7 @@ const Sections3 = () => {
               </div>
             </div>
             <div className="mt-5">
-              <img alt="" src={require("../../assests/images/layer.png")} />
+              <img alt="" src={require("../../assets/images/layer.png")} />
             </div>
           </div>
         </div>
@@ -63,7 +64,7 @@ const Sections3 = () => {
                 <img
                 alt=""
                   className="w-[16px] h-[16px]"
-                  src={require("../../assests/images/location.svg").default}
+                  src={require("../../assets/images/location.svg").default}
                 />{" "}
                 New York, USA
               </p>
@@ -79,6 +80,7 @@ const Sections3 = () => {
           </div>
         </div>
       </div>
+    </Link>
     </>
   );
 };
