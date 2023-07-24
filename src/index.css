@@ -8,6 +8,8 @@
   font-family: 'Montserrat', sans-serif;
   }
 
-  .selected{
-    color: brown;
-  }
+  .card-shadow{
+    -moz-box-shadow: 0 0 5px #ccc;
+    -webkit-box-shadow: 0 0 5px #ccc;
+    box-shadow: 0 0 5px #ccc;
+    }
