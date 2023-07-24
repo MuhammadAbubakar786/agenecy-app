@@ -1,183 +1,193 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react'
 import star from '../assets/Icons/star.svg'
+import outlineStar from '../assets/Icons/start_outline.svg'
 import fileUpload from '../assets/Icons/upload_to_cloud.svg'
+import dropDownIcon from '../assets/Icons/expand_arrow.svg'
 import { Link } from 'react-router-dom';
-
+import LogoMark from '../assets/Icons/Logomark.svg'
+import line from '../assets/Icons/line.svg'
 function UserReview() {
+  const categories = ['Value', 'Domain knowledge', 'Communication', 'World recommendation'];
   const [email, setEmail] = useState('');
   const [location, setLocation] = useState('');
   const [selectedOption, setSelectedOption] = useState('');
   const [file, setFile] = useState<File | null>(null);
   const [pros, setPros] = useState('');
   const [cons, setCons] = useState('');
+  const [ratings, setRatings] = useState<{ [category: string]: number }>({});
+  const isLocationValid = () => location.trim() !== '';
+  const isLocationValid1 = () => email.trim() !== '';
+  const isLocationValid2 = () => selectedOption.trim() !== '';
 
-  const handleFormSubmit = () => {
-    console.log('Form submitted:', {
-      email,
-      location,
-      selectedOption,
-      pros,
-      cons,
-      file,
-    });
+  const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if(isLocationValid() && isLocationValid1() && isLocationValid2()){
+      console.log('Form submitted:', {
+        email,
+        location,
+        selectedOption,
+        pros,
+        cons,
+        file,
+        ratings,
+      });
+    }
+    else{
+      console.log("Validation error");
+    }
   };
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0];
     setFile(selectedFile || null);
   };
+  const filledStarIcon = (
+    <img src={outlineStar} alt='Star' className='w-4'/>
+  );
 
+  const outlineStarIcon = (
+    <img src={star} alt='Star' className='w-4'/>
+  );
+  const handleRatingChange = (category: string, rating: number) => {
+    setRatings((prevRatings) => ({
+      ...prevRatings,
+      [category]: rating,
+    }));
+  };
   return (
     <React.Fragment>
-      <div className='container mx-auto px-2 py-8'>
-        <div className="max-w-xl mx-auto bg-whiteColor grid grid-cols-1 gap-8">
-            <h1 className='font-semibold text-2xl line leading-8 text-center'>Leave a Review</h1>
-            <form className='grid grid-cols-1 gap-8'>
-              <div className='grid grid-cols-1 sm:grid-cols-2 gap-6'>
+      <div className='mx-[5%] grid grid-cols-1'>
+        <div className='mx-auto max-w-[680px] sm:px-0 grid grid-cols-1 py-8'>
+          <div className="bg-whiteColor grid grid-cols-1">
+              <form className='grid grid-cols-1 gap-6 font-montserrat' onSubmit={handleFormSubmit}>
                 <div className="grid grid-cols-1">
-                  <label htmlFor="email" className='text-gray700 text-sm font-medium leading-5'>
-                    Email address
+                  <div className="grid grid-cols-[auto_auto] justify-center items-center gap-4 pb-4 sm:pb-8">
+                    <img src={LogoMark} alt="Logo" className="w-11 sm:w-14 mr-auto"/>
+                    <h3 className="uppercase font-babas font-bold text-2xl sm:text-[32px] leading-normal tracking-[0.64px]">Agency Name</h3>
+                  </div>
+                  <h1 className='font-montserrat not-italic font-semibold text-lg sm:text-2xl leading-[30px] text-center '>Leave a Review</h1>
+                </div>
+                <div className='grid grid-cols-1 sm:grid-cols-2 gap-6'>
+                  <div className="grid grid-cols-1 gap-[4px] items-center">
+                    <label htmlFor="email" className='font-montserrat text-gray700 text-sm font-medium leading-5 not-italic'>
+                      Email address <span className="text-redHighlightedColor">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      className={!isLocationValid1() ? 'border-[1px] border-redHighlightedColor text-inputColor rounded-lg  px-2 py-3 shadow-shadowXs h-10 self-stretch' : `border-[1px] border-grayBorder text-inputColor rounded-lg  px-2 py-3 shadow-shadowXs h-10 self-stretch`}
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                      required
+                    />
+                  </div>
+                  <div className="grid grid-cols-1 gap-[4px]">
+                    <label htmlFor="location" className='font-montserrat text-gray700 text-sm font-medium leading-5 not-italic'>
+                      Location  <span className="text-redHighlightedColor">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="location"
+                      className={!isLocationValid() ? 'border-[1px] border-redHighlightedColor text-inputColor rounded-lg  px-2 py-3 shadow-shadowXs h-10 self-stretch' : `border-[1px] border-grayBorder text-inputColor rounded-lg  px-2 py-3 shadow-shadowXs h-10 self-stretch`}
+                      value={location}
+                      onChange={(e) => setLocation(e.target.value)}
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 gap-[4px] items-center">
+                  <label htmlFor="dropdown" className='font-montserrat text-gray700 text-sm font-medium leading-5 not-italic'>
+                    How long have you been a client?
                   </label>
-                  <input
-                    type="email"
-                    id="email"
-                    className="border-[1px] border-grayBorder text-grayBorder rounded-lg p-2"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                  />
-                </div>
-                <div className="grid grid-cols-1">
-                  <label htmlFor="location" className='text-gray700 text-sm font-medium leading-5'>
-                    Location
-                  </label>
-                  <input
-                    type="text"
-                    id="location"
-                    className="border-[1px] border-grayBorder text-grayBorder rounded-lg p-2"
-                    value={location}
-                    onChange={(e) => setLocation(e.target.value)}
-                    required
-                  />
-                </div>
-              </div>
-              <div className="grid grid-cols-1">
-                <label htmlFor="dropdown" className='text-gray700 text-sm font-medium leading-5'>
-                  Dropdown list
-                </label>
-                <select
-                  id="dropdown"
-                  className=' border-[1px] border-grayBorder text-grayBorder rounded-lg p-2'
-                  value={selectedOption}
-                  onChange={(e) => setSelectedOption(e.target.value)}
-                  required
-                >
-                  <option value="" className='pr-2'>Select an option</option>
-                  <option value="option1" className='pr-2'>Less than 6 months</option>
-                  <option value="option2" className='pr-2'>Option 2</option>
-                </select>
-              </div>
-              <div className='grid grid-cols-1 gap-3'>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className='grid grid-cols-[auto_auto]'>
-                    <label htmlFor="Value" className='text-base font-medium text-textColor'>
-                      Value
-                    </label>
-                    <div id='Value' className='grid auto-cols-auto grid-flow-col justify-self-end'>
-                      <img src={star} alt='Star' className='w-4 '/>
-                      <img src={star} alt='Star' className='w-4 '/>
-                      <img src={star} alt='Star' className='w-4'/>
-                      <img src={star} alt='Star' className='w-4'/>
-                      <img src={star} alt='Star' className='w-4'/>
-                    </div>
-                  </div>
-                  <div className='grid grid-cols-[auto_auto]'>
-                    <label htmlFor="domain" className='text-base font-medium text-textColor'>
-                      Domain Knowledge
-                    </label>
-                    <div id='domain' className='grid auto-cols-auto grid-flow-col justify-self-end'>
-                      <img src={star} alt='Star' className='w-4 '/>
-                      <img src={star} alt='Star' className='w-4 '/>
-                      <img src={star} alt='Star' className='w-4'/>
-                      <img src={star} alt='Star' className='w-4'/>
-                      <img src={star} alt='Star' className='w-4'/>
+                  <div className='grid grid-cols-1 relative'>
+                    <select
+                      id="dropdown"
+                      className={!isLocationValid2() ? 'font-montserrat text-sm not-italic font-medium appearance-none border-[1px] border-redHighlightedColor text-inputColor rounded-lg pl-2 py-3 leading-5 relative shadow-shadowXs' : `font-montserrat text-sm not-italic font-medium appearance-none border-[1px] border-grayBorder text-inputColor rounded-lg pl-2 py-3 leading-5 relative shadow-shadowXs`}
+                      value={selectedOption}
+                      onChange={(e) => setSelectedOption(e.target.value)}
+                      required
+                    >
+                      <option value="" className='pr-2 text-inputColor'>Select an option</option>
+                      <option value="option1" className='pr-2'>Less than 6 months</option>
+                      <option value="option2" className='pr-2'>Option 2</option>
+                    </select>
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center text-gray-700 px-[10px] py-4">
+                      <img src={dropDownIcon} alt="Arrow down icon" className="w-[10px]" />
                     </div>
                   </div>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className='grid grid-cols-[auto_auto]'>
-                    <label htmlFor="Value" className='text-base font-medium text-textColor'>
-                      Communication
-                    </label>
-                    <div id='Value' className='grid auto-cols-auto grid-flow-col justify-self-end'>
-                      <img src={star} alt='Star' className='w-4 '/>
-                      <img src={star} alt='Star' className='w-4 '/>
-                      <img src={star} alt='Star' className='w-4'/>
-                      <img src={star} alt='Star' className='w-4'/>
-                      <img src={star} alt='Star' className='w-4'/>
-                    </div>
-                  </div>
-                  <div className='grid grid-cols-[auto_auto]'>
-                    <label htmlFor="domain" className='text-base font-medium text-textColor'>
-                      Would recommanded
-                    </label>
-                    <div id='domain' className='grid auto-cols-auto grid-flow-col justify-self-end'>
-                      <img src={star} alt='Star' className='w-4 '/>
-                      <img src={star} alt='Star' className='w-4 '/>
-                      <img src={star} alt='Star' className='w-4'/>
-                      <img src={star} alt='Star' className='w-4'/>
-                      <img src={star} alt='Star' className='w-4'/>
-                    </div>
-                  </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-x-3 md:gap-x-16 gap-y-6 px-0 md:px-3">
+                    {categories.map((category) => (
+                        <div key={category} className='grid grid-cols-[auto_auto]'>
+                          <label htmlFor="Value" className='font-montserrat text-sm font-medium text-textColor not-italic leading-5'>
+                            {category}
+                          </label>
+                          <div id='Value' className='grid auto-cols-auto grid-flow-col justify-self-end gap-1 sm:gap-2'>
+                            {[1, 2, 3, 4, 5].map((index) => (
+                                <span
+                                key={index}
+                                onClick={() => handleRatingChange(category, index)}
+                                className='cursor-pointer'
+                              >
+                                {index <= (ratings[category] || 0) ? outlineStarIcon : filledStarIcon}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                    ))}
                 </div>
-              </div>
-              <div className='grid grid-cols-1 sm:grid-cols-2 gap-6'>
-                <div className="grid grid-cols-1">
-                  <label htmlFor="pros" className='text-gray700 text-sm font-medium leading-5'>
+                <div className="grid grid-cols-1 gap-[4px] items-start self-stretch">
+                  <label htmlFor="pros" className='font-montserrat text-gray700 text-sm font-medium leading-5 not-italic'>
                     Pros
                   </label>
                   <textarea
                     id="pros"
-                    className="border-[1px] border-grayBorder text-grayBorder rounded-lg px-2 py-2"
+                    className="font-montserrat border-[1px] border-grayBorder text-sm not-italic font-medium leading-5 h-28 text-inputColor rounded-lg px-3 py-[14px] shadow-shadowXs"
                     value={pros}
                     onChange={(e) => setPros(e.target.value)}
+                    placeholder='Pros ...'
                     required
                   />
                 </div>
-                <div className="grid grid-cols-1">
-                  <label htmlFor="cons" className='text-gray700 text-sm font-medium leading-5'>
+                <div className="grid grid-cols-1 gap-[4px] items-start self-stretch">
+                  <label htmlFor="cons" className='font-montserrat text-gray700 text-sm font-medium leading-5 not-italic'>
                     Cons
                   </label>
                   <textarea
                     id="cons"
-                    className="border-[1px] border-grayBorder text-grayBorder rounded-lg px-2 py-2"
+                    className="font-montserrat border-[1px] border-grayBorder text-sm not-italic font-medium leading-5 h-28 text-inputColor rounded-lg px-3 py-[14px] shadow-shadowXs"
                     value={cons}
                     onChange={(e) => setCons(e.target.value)}
+                    placeholder='Cons ...'
                     required
                   />
                 </div>
-              </div>
-              <div className="grid grid-cols-1 gap-3">
-                <p className='text-center text-sm font-normal'>In order to validate the authenticity of all reviews on agencyreviews.io, we require an image or PDF of an invoice from the agency</p>
-                <div className='grid grid-cols-1'>
-                  <label htmlFor="file-input" className="bg-primaryColor py-2 px-[14px] rounded-lg text-whiteColor grid grid-cols-[auto_1fr] justify-self-center items-center gap-2">
-                    <img src={fileUpload} alt='File upload' className='w-4'  />
-                    <span>Select File {file && <span>| {file.name}</span>}</span>
-                  </label>
-                  <input
-                    id="file-input"
-                    type="file"
-                    className="hidden bg-primaryColor py-2 px-3 rounded-lg text-whiteColor grid-cols-1 justify-self-center"
-                    accept=".jpg, .jpeg, .png, .pdf"
-                    onChange={handleFileChange}
-                  />
+                <div className="grid grid-cols-1 gap-4">
+                  <p className='text-center text-sm font-normal'>In order to validate the authenticity of all reviews on agencyreviews.io, we require an image or PDF of an invoice from the agency</p>
+                  <div className='grid grid-cols-1'>
+                    <label htmlFor="file-input" className="font-montserrat not-italic font-semibold leading-5 text-sm rounded-lg border-[1px] border-grayBorder px-4 py-[10px] text-gray700 grid grid-cols-[auto_auto] justify-center justify-self-center items-center gap-2 shadow-shadowXs">
+                      <img src={fileUpload} alt='File upload' className='w-5'  />
+                      <span className="capitalize">upload {file && <span>| {file.name}</span>}</span>
+                    </label>
+                    <input
+                      id="file-input"
+                      type="file"
+                      className="hidden bg-primaryColor py-2 px-3 rounded-lg text-whiteColor grid-cols-1 justify-self-center"
+                      accept=".jpg, .jpeg, .png, .pdf"
+                      onChange={handleFileChange}
+                    />
+                  </div>
                 </div>
-              </div>
-            </form>
-        </div>
-        <div className='grid grid-cols-[auto_auto] justify-between pt-4'>
-          <Link to="/" className='font-semibold px-5 py-2 border-2 border-primaryColor text-primaryColor rounded-lg text-sm '>Back</Link>
-          <button type='submit' className='font-semibold px-5 py-2 rounded-lg text-sm bg-primaryColor text-whiteColor' onClick={handleFormSubmit}>Submit</button>
+                <div className='grid grid-cols-1 py-2'>
+                  <img src={line} alt='hori line' className='w-full'/>
+                </div>
+                <div className='grid grid-cols-[90px_90px] sm:grid-cols-[144px_144px] justify-between gap-2 font-montserrat font-semibold text-xs sm:text-sm'>
+                  <Link to="/" className='leading-5 not-italic px-2 py-2 sm:px-4 sm:py-[10px] text-center border-2 border-grayBorder text-gray700 rounded-lg shadow-shadowXs'>Back</Link>
+                  <button type='submit' className='border border-red-900 leading-5 not-italic px-2 py-2 sm:px-4 sm:py-[10px] bg-primaryColor text-whiteColor rounded-lg shadow-shadowXs' >Submit</button>
+                </div>
+              </form>
+          </div>
         </div>
       </div>
     </React.Fragment>
