@@ -92,7 +92,6 @@ const Section2 = () => {
           </div>
           <div>
             <button
-              ref={ref}
               className="flex items-center justify-between rounded-lg border border-[#D0D5DD] px-2 py-1  text-black text-[14px] font-samibold font-inter"
               onClick={() => {
                 setExpertise(!expertise);
@@ -135,7 +134,7 @@ const Section2 = () => {
           </div>
           <div>
             <button
-              ref={ref}
+             ref={ref}
               className="flex items-center justify-between rounded-lg border border-[#D0D5DD] px-2 py-1  text-black text-[14px] font-samibold font-inter"
               onClick={() => {
                 setSort(!sort);

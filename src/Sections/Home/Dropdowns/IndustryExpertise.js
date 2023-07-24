@@ -58,11 +58,11 @@ const IndustryExpertise = () => {
   return (
     <>
       <div
-        className="absolute mx-auto xl:mx-0 mt-[1000px] sm:mt-[550px] md:mt-[400px] xl:right-[18%] z-10 lg:mt-96 w-[80%] lg:w-[80%] xl:w-[800px] p-10 origin-top-right rounded-[8px] bg-white border border-whiteColor py-1 card-shadow ring-black ring-opacity-5 bg-whiteColor"
+        className="absolute mx-auto xl:mx-0 mt-[1000px] sm:mt-[550px] md:mt-[400px] xl:right-[18%] z-10 lg:mt-[300px] w-[80%] lg:w-[80%] xl:w-[800px] p-10 origin-top-right rounded-[8px] bg-white border border-whiteColor py-1 card-shadow ring-black ring-opacity-5 bg-whiteColor"
         role="menu"
         aria-orientation="vertical"
       >
-        <div className="grid grid-cols-12 gap-5 justify-items-center sm:justify-items-start">
+        <div className="grid grid-cols-12 gap-x-5 gap-y-2 py-2  justify-items-center md:justify-items-start">
         {
           ExpertiesData?.map((item)=>{
             return <>
