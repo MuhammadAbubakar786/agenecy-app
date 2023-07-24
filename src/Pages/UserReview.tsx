@@ -1,11 +1,11 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react'
-import star from '../assests/Icons/star.svg'
-import outlineStar from '../assests/Icons/start_outline.svg'
-import fileUpload from '../assests/Icons/upload_to_cloud.svg'
-import dropDownIcon from '../assests/Icons/expand_arrow.svg'
+import star from '../assets/Icons/star.svg'
+import outlineStar from '../assets/Icons/start_outline.svg'
+import fileUpload from '../assets/Icons/upload_to_cloud.svg'
+import dropDownIcon from '../assets/Icons/expand_arrow.svg'
 import { Link } from 'react-router-dom';
-import LogoMark from '../assests/Icons/Logomark.svg'
-import line from '../assests/Icons/line.svg'
+import LogoMark from '../assets/Icons/Logomark.svg'
+import line from '../assets/Icons/line.svg'
 function UserReview() {
   const categories = ['Value', 'Domain knowledge', 'Communication', 'World recommendation'];
   const [email, setEmail] = useState('');
@@ -117,18 +117,18 @@ function UserReview() {
                     </div>
                   </div>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-16 gap-y-6 px-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-x-3 md:gap-x-16 gap-y-6 px-0 md:px-3">
                     {categories.map((category) => (
                         <div key={category} className='grid grid-cols-[auto_auto]'>
                           <label htmlFor="Value" className='font-montserrat text-sm font-medium text-textColor not-italic leading-5'>
                             {category}
                           </label>
-                          <div id='Value' className='grid auto-cols-auto grid-flow-col justify-self-end'>
+                          <div id='Value' className='grid auto-cols-auto grid-flow-col justify-self-end gap-1 sm:gap-2'>
                             {[1, 2, 3, 4, 5].map((index) => (
                                 <span
                                 key={index}
                                 onClick={() => handleRatingChange(category, index)}
-                                style={{ cursor: 'pointer', margin: '0 3px' }}
+                                className='cursor-pointer'
                               >
                                 {index <= (ratings[category] || 0) ? outlineStarIcon : filledStarIcon}
                               </span>

@@ -17,6 +17,7 @@ module.exports = {
       'grayBorder': '#D0D5DD',
       'primaryColor':'#329BFA',
       'textColor':'#565656', 
+      'redHighlightedColor': '#F04438',
     },
   },
   plugins: [],
