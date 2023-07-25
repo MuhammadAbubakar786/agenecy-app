@@ -1,18 +1,11 @@
 import React, { useState, useRef } from "react";
-import { Link } from "react-router-dom";
 import Sorting from "./Dropdowns/Sorting";
 import IndustryExpertise from "./Dropdowns/IndustryExpertise";
-import useClickOutside from "../../Hooks/useClickOutside";
 
 const Section2 = () => {
   const [sort, setSort] = useState(false);
-  const [ownership, setOwnership] = useState(false);
   const [expertise, setExpertise] = useState(false);
-  const ref = useRef(null);
-  useClickOutside(ref, () => {
-    setSort(false);
-    setExpertise(false);
-  });
+ 
   return (
     <>
       <div className="flex items-center flex-wrap lg:flex-nowrap justify-center lg:justify-between mx-[5%] xl:mx-auto gap-5 lg:gap-0  max-w-[1216px] mt-10 relative">
@@ -95,7 +88,7 @@ const Section2 = () => {
               className="flex items-center justify-between rounded-lg border border-[#D0D5DD] px-2 py-1  text-black text-[14px] font-samibold font-inter"
               onClick={() => {
                 setExpertise(!expertise);
-                setSort(false);
+                setSort(false)
               }}
             >
               Industry expertise
@@ -134,11 +127,10 @@ const Section2 = () => {
           </div>
           <div>
             <button
-             ref={ref}
               className="flex items-center justify-between rounded-lg border border-[#D0D5DD] px-2 py-1  text-black text-[14px] font-samibold font-inter"
               onClick={() => {
                 setSort(!sort);
-                setExpertise(false);
+                setExpertise(false)
               }}
             >
               Sort by
