@@ -101,7 +101,7 @@ const Section3 = () => {
                   {item?.tags.map((text) => {
                     return (
                       <>
-                        <button className="text-[14px] font-inter font-medium px-2 py-1 border border-[#D0D5DD] rounded-[8px]">
+                        <button className="text-[14px] font-inter font-medium px-2 py-1 border border-[#D0D5DD] rounded-[8px] hover:border-[#85A2FA] hover:text-[#3364F7] hover:bg-[#EFF3FF]">
                           {text}
                         </button>
                       </>
