@@ -7,6 +7,7 @@ import Section5 from '../Sections/AgencyDetails/Section5'
 import Section6 from '../Sections/AgencyDetails/Section6'
 import Section7 from '../Sections/AgencyDetails/Section7'
 import Pagination from '../Components/Pagination/Pagination'
+import Footer from '../Sections/Footer/Footer'
 
 const AgencyDetails = () => {
   return (
@@ -21,6 +22,7 @@ const AgencyDetails = () => {
       <Section7/>
       <Section7/>
       <Pagination/>
+      <Footer />
     </>
   )
 }
